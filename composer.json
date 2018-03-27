@@ -1,0 +1,8 @@
+{
+    "name": "tnt2306/cua-luoi-chong-muoi-viet-thong",
+    "description": "Cua luoi chong muoi Viet Thong, chuyên kinh doanh và lắp đặt cua luoi chong muoi, cua luoi chống côn trùng với nhiều màu sắc và kiểu dáng khác nhau, nguyên liệu sản xuất cửa lưới chống muỗi được nhập khẩu từ Ý công nghệ sản xuất cửa lưới muỗi hiện đại với độ bền cao nhất",
+    "require": {
+        "php": "^5.3.3 || ^7.0",
+        "another-vendor/package": "1.*"
+    }
+}
