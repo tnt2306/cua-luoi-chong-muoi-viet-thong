@@ -11,20 +11,6 @@ gen64() {
 	}
 	echo "$1:$(ip64):$(ip64):$(ip64):$(ip64)"
 }
-install_3proxy() {
-    echo "installing 3proxy"
-    URL="https://raw.githubusercontent.com/ngochoaitn/multi_proxy_ipv6/main/3proxy-3proxy-0.8.6.tar.gz"
-    wget -qO- $URL | bsdtar -xvf-
-    cd 3proxy-3proxy-0.8.6
-    make -f Makefile.Linux
-    mkdir -p /usr/local/etc/3proxy/{bin,logs,stat}
-    cp src/3proxy /usr/local/etc/3proxy/bin/
-    cp ./scripts/rc.d/proxy.sh /etc/init.d/3proxy
-    chmod +x /etc/init.d/3proxy
-    chkconfig 3proxy on
-    cd $WORKDIR
-}
-
 gen_3proxy() {
     cat <<EOF
 daemon
@@ -78,8 +64,6 @@ gen_ifconfig() {
 $(awk -F "/" '{print "ifconfig eth0 inet6 add " $5 "/64"}' ${WORKDATA})
 EOF
 }
-echo "installing apps"
-yum -y install gcc net-tools bsdtar zip >/dev/null
 
 echo "working folder = /home/proxy-installer"
 WORKDIR="/home/proxy-installer"
